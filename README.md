@@ -11,7 +11,7 @@ A full-stack **Expense Tracker & Analytics Dashboard** developed using **Python,
 
 Dashboard 
 
-Dashboard Expense Tracker.png
+DashboardExpenseTracker.png
 
 ------
 
