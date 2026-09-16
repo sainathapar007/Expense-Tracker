@@ -7,7 +7,23 @@ A full-stack **Expense Tracker & Analytics Dashboard** developed using **Python,
 
 # 📊 Dashboard Preview
 
-![Expense Tracker Dashboard](Expense_Tracker_Dashboard.png)
+-----
+
+Dashboard 
+
+Dashboard Expense Tracker.png
+
+------
+
+Data Records Expense Tracker.png
+
+------
+
+Developer Inforamation Expenses Tracker.png
+
+------
+
+Graph Expenses Tracker.png
 
 ---
 
