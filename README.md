@@ -1,4 +1,3 @@
-
 # 💸 Expense Tracker & Analytics Dashboard
 
 A full-stack **Expense Tracker & Analytics Dashboard** developed using **Python, Streamlit, and MySQL** to log, manage, and analyze daily personal finances, categorical spending, and historical expense trends through dynamic visualizations and secure multi-tenant access.
@@ -7,23 +6,7 @@ A full-stack **Expense Tracker & Analytics Dashboard** developed using **Python,
 
 # 📊 Dashboard Preview
 
------
-
-Dashboard 
-
-DashboardExpenseTracker.png
-
-------
-
-Data Records Expense Tracker.png
-
-------
-
-Developer Inforamation Expenses Tracker.png
-
-------
-
-Graph Expenses Tracker.png
+![Main Dashboard Preview](Dashboard%20Expense%20Tracker.png)
 
 ---
 
@@ -106,20 +89,20 @@ The project uses a locally hosted relational MySQL database containing two prima
 ### 1. Multi-Tenant User Authentication
 Secure login and sign-up portal utilizing SHA-256 password hashing and persistent 30-day browser cookies.
 
-### 2. CRUD Operations
-Seamlessly create new expense logs and delete erroneous entries directly from the user interface using specific Record IDs.
+### 2. Interactive Analytics & Charts
+Analyzes the percentage of total money spent across different categories (Pie Chart) and visualizes day-to-day spending spikes and trends (Bar Chart).
 
-### 3. Spending Distribution (Pie Chart)
-Analyzes the percentage of total money spent across different categories (e.g., Medical, Groceries, Entertainment).
+![Analytics Graphs](Graph%20Expenses%20Tracker.png)
 
-### 4. Daily Spending Activity (Bar Chart)
-Visualizes day-to-day spending spikes and trends across the selected time period.
+### 3. Detailed Expense Records & CRUD Operations
+Provides a clean, tabular view of all historical data, dynamically updating based on user filters. Users can seamlessly create new expense logs and delete erroneous entries directly from the interface using specific Record IDs.
 
-### 5. Detailed Expense Records Table
-Provides a clean, tabular view of all historical data, dynamically updating based on user filters.
+![Data Records Tab](Data%20Records%20Expense%20Tracker.png)
 
-### 6. Developer & System Telemetry
-A dedicated portfolio tab displaying live database metrics and developer stack information.
+### 4. Developer & System Telemetry
+A dedicated portfolio tab displaying live database metrics, active registered users, total entries processed, and developer stack information.
+
+![Developer Info Tab](Developer%20Inforamation%20Expenses%20Tracker.png)
 
 ---
 
@@ -140,51 +123,8 @@ Expense-Tracker-Streamlit/
 ├── .streamlit/
 │   └── config.toml
 ├── sai image.png
-├── Expense_Tracker_Dashboard.png
+├── Dashboard Expense Tracker.png
+├── Data Records Expense Tracker.png
+├── Developer Inforamation Expenses Tracker.png
+├── Graph Expenses Tracker.png
 └── README.md
-
-```
-
----
-
-# 💡 Business & Personal Insights
-
-The dashboard helps users identify:
-
-* Areas of overspending (e.g., identifying if "Entertainment" exceeds "Groceries").
-* Specific days of the month where spending spikes occur.
-* Long-term financial habits to assist in future budget planning.
-* Secure segregation of private financial data in a shared environment.
-
----
-
-# 💻 Skills Demonstrated
-
-* Full-Stack Web Development
-* Relational Database Schema Design (MySQL)
-* Secure Authentication & Session Management
-* Parameterized SQL Queries (SQL Injection Defense)
-* Data Cleaning & Aggregation (Pandas)
-* Interactive Data Visualization (Plotly)
-* UI/UX Design Customization
-
----
-
-# 🚀 Future Enhancements
-
-* One-click CSV Data Export for external backup.
-* Monthly Budget Limit settings with visual progress bars.
-* Machine Learning integration for predicting future month expenses based on historical data.
-* In-place editable data tables.
-
----
-
-# 👨‍💻 Author
-
-**Sainath Apar**
-
-**B.Tech – Computer Science and Engineering**
-
-```
-
-```
