@@ -1,237 +1,130 @@
-# 🏥 Health AI – Smart Healthcare System
+# 💸 Expense Tracker & Analytics Dashboard
 
-A full-stack **Health AI – Smart Healthcare System** developed using **Python, Flask, and Scikit-learn** to predict likely diseases from user-selected symptoms and generate a complete health report covering descriptions, precautions, medications, diet plans, and workout suggestions.
-
-> ⚠️ **Disclaimer:** This project is for educational purposes only. It is **not** a medical diagnosis tool. Always consult a qualified healthcare professional.
+A full-stack **Expense Tracker & Analytics Dashboard** developed using **Python, Streamlit, and MySQL** to log, manage, and analyze daily personal finances, categorical spending, and historical expense trends through dynamic visualizations and secure multi-tenant access.
 
 ---
 
-# 📸 Application Preview
+# 📊 Dashboard Preview
 
-![Home Page](https://github.com/user-attachments/assets/91da35de-645f-4efe-add8-76a14a3ff83d)
+![Main Dashboard Preview](Dashboard%20Expense%20Tracker.png)
 
 ---
 
 # 🎯 Project Objective
 
-The objective of this project is to build a web application that lets users select their symptoms and instantly receive a machine-learning-based disease prediction along with practical health guidance. It combines a trained classification model with several supporting datasets to turn raw symptom input into a readable health report.
+The objective of this project is to create a secure, multi-user web application that replaces manual financial tracking. It provides meaningful insights into personal spending habits, category-wise distributions, and daily expense trends through an interactive dashboard.
 
-The application helps users understand:
-* Most Likely Disease
-* Prediction Confidence Score
-* Plain-Language Disease Description
-* Recommended Precautions
-* Common Medications
-* Diet Plan
-* Workout Suggestions
+The dashboard helps users understand:
+* Total Amount Spent
+* Average Transaction Value
+* Highest Spending Category
+* Daily Spending Trends
+* Categorical Expense Distribution
+* Historical Financial Records
 
 ---
 
 # 💼 Business Problem
 
-People who feel unwell often search symptoms across many websites and get scattered, confusing, or alarming information. There is no single place that links a set of symptoms to a likely condition and the next practical steps.
+Managing daily expenses manually using spreadsheets or physical notebooks is time-consuming, prone to calculation errors, and makes it difficult to identify long-term spending trends. Furthermore, tracking finances for multiple users on a single local machine usually leads to privacy issues and data overlap.
 
-This system transforms symptom input into a structured health report, giving users an easy-to-read starting point for understanding their condition before consulting a doctor.
+This dashboard transforms raw financial inputs into an interactive Business Intelligence solution, enabling users to log their data securely, explore historical records, and uncover valuable spending insights through automated visualizations.
 
 ---
 
 # ❓ Key Analytical Questions
 
-* Which disease is most likely given a specific combination of symptoms?
-* How confident is the model in its prediction?
-* What precautions are recommended for the predicted disease?
-* Which medications, diet, and workouts are commonly associated with it?
-* Is the user input valid and complete before a prediction is made?
+* What is the total amount spent within a specific month?
+* Which category consumes the highest percentage of the budget?
+* What is the average value of a daily transaction?
+* How does spending fluctuate on a day-to-day basis?
+* What are the historical expenses for a specific category like "Transport" or "Groceries"?
+* How many active users and total entries are currently processed by the system?
 
 ---
 
 # 🛠️ Tools & Technologies
 
-* **Front-End:** HTML, CSS, JavaScript, Bootstrap 5, Jinja2 templates
-* **Back-End:** Python 3, Flask (application factory + blueprints)
-* **Machine Learning:** Scikit-learn (Support Vector Classifier, RBF kernel)
-* **Data Manipulation:** Pandas, NumPy
-* **Model Persistence:** Joblib
-* **Configuration & Logging:** python-dotenv, Python logging
+* **Front-End:** Streamlit, HTML/CSS
+* **Back-End:** Python 3
+* **Database:** MySQL, `mysql-connector-python`
+* **Data Visualization:** Plotly Express
+* **Data Manipulation:** Pandas
+* **Security & Auth:** Hashlib (SHA-256), `extra-streamlit-components` (Cookies)
 
 ---
 
 # 📂 Dataset / Schema
 
-The project uses a symptom-disease dataset and five supporting CSV files that are merged for each predicted disease.
+The project uses a locally hosted relational MySQL database containing two primary tables:
 
-**Training Data (`Training.csv`):**
-* 132 symptom columns (binary: 1 = present, 0 = absent)
-* `prognosis` column (disease name, 41 classes)
+**Users Table:**
+* Username (Primary Key)
+* Password Hash (SHA-256)
 
-**Supporting Data:**
-
-| File | Purpose |
-| ---- | :--- |
-| `description.csv` | Plain-language disease description |
-| `precautions_df.csv` | Four recommended precautions per disease |
-| `medications.csv` | Common medications per disease |
-| `diets.csv` | Recommended diet plan |
-| `workout_df.csv` | Workout suggestions |
-| `symtoms_df.csv` | Symptom reference details |
-
-**Data cleaning:** empty columns and duplicate rows are removed before training.
+**Expenses Table:**
+* Record ID (Primary Key)
+* Expense Date
+* Category
+* Amount
+* Description
+* Username (Foreign Key link)
 
 ---
 
-# 📈 Key Report Metrics
+# 📈 Key Dashboard Metrics
 
-| Metric | Description |
+| Metric                 | Description |
 | ---------------------- | :--- |
-| **Predicted Disease** | Disease with the highest model probability |
-| **Confidence Score** | Probability assigned to the prediction |
-| **Description** | Short explanation of the disease |
-| **Precautions** | Four recommended precautions |
-| **Medications** | Common medicines associated with the disease |
-| **Diet & Workout** | Suggested diet plan and workouts |
+| **Total Spent**        | Aggregate sum of filtered expenses |
+| **Average Expense**    | Mean value of filtered transactions |
+| **Top Category**       | Category with the highest total expenditure |
+| **Registered Users**   | Live count of total system users |
+| **Processed Entries**  | Live count of total database records |
 
 ---
 
-# 📊 Application Features
+# 📊 Dashboard Features
 
-### 1. Interactive Symptom Selector
-Search and click-to-select chip interface covering 132 symptoms, with a live counter of selected symptoms.
+### 1. Multi-Tenant User Authentication
+Secure login and sign-up portal utilizing SHA-256 password hashing and persistent 30-day browser cookies.
 
-![Symptom Selector](https://github.com/user-attachments/assets/db78dc8a-c9c7-4b0f-8df9-06f11c7c6f9f)
+### 2. Interactive Analytics & Charts
+Analyzes the percentage of total money spent across different categories (Pie Chart) and visualizes day-to-day spending spikes and trends (Bar Chart).
 
-### 2. Machine Learning Prediction
-A Support Vector Classifier trained on 41 diseases returns the most likely disease with a confidence score. Input is validated before it reaches the model.
+![Analytics Graphs](Graph%20Expenses%20Tracker.png)
 
-### 3. Complete Health Report
-Merges five supporting datasets with Pandas to build a full report for the predicted disease, with a print-friendly layout.
+### 3. Detailed Expense Records & CRUD Operations
+Provides a clean, tabular view of all historical data, dynamically updating based on user filters. Users can seamlessly create new expense logs and delete erroneous entries directly from the interface using specific Record IDs.
 
-![Health Report](https://github.com/user-attachments/assets/3cf0feb2-615c-4a56-b4f6-a15663c0037a)
+![Data Records Tab](Data%20Records%20Expense%20Tracker.png)
 
-### 4. Health Blog & Informational Pages
-Includes a health blog (list and detail pages), About, Developer, and Contact pages.
+### 4. Developer & System Telemetry
+A dedicated portfolio tab displaying live database metrics, active registered users, total entries processed, and developer stack information.
 
-### 5. Clean, Modular Architecture
-Built with the Flask application factory pattern, separate blueprints for main pages, prediction, and blog, plus dedicated utilities for validation, prediction logic, and logging.
-
----
-
-# 🧠 Model Training
-
-| Step | Details |
-| ---- | :--- |
-| Split | Stratified train-test split |
-| Model | SVC with RBF kernel |
-| Validation | Cross-validation scores printed during training |
-| Output | `svc_model.pkl` and `label_encoder.pkl` |
-
-> **Note:** The dataset is small and highly repetitive, so scores are near-perfect. They reflect the dataset and do not indicate real-world clinical accuracy.
-
-To retrain the model:
-
-```bash
-python models/model_trainer.py
-```
+![Developer Info Tab](Developer%20Inforamation%20Expenses%20Tracker.png)
 
 ---
 
-# 🚀 Getting Started
+# 🎛️ Interactive Filters
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/sainathapar007/Smart-Healthcare-System.git
-cd Smart-Healthcare-System
-
-# 2. (Optional) Create a virtual environment
-python -m venv venv
-venv\Scripts\activate        # Windows
-source venv/bin/activate     # macOS / Linux
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Set up environment variables
-cp .env.example .env         # then set a strong SECRET_KEY
-
-# 5. Run the app
-python app.py
-```
-
-Open **http://localhost:5000** in your browser.
-
-| Page | Route |
-| ---- | :--- |
-| Home | `/` or `/home` |
-| Check Symptoms | `/predict/` |
-| Health Blog | `/blog/` |
-| About | `/about` |
-| Developer | `/developer` |
-| Contact | `/contact` |
-
----
-
-# ⚠️ Limitations
-
-* Predictions use symptom presence only (no age, medical history, or test results).
-* Medication and diet details are general reference data, not personalized advice.
-* Predictions are not stored (no database in this version).
-
----
-
-# 🔮 Future Improvements
-
-* Show the top 3 predictions with probabilities
-* Add user accounts and prediction history with a database
-* Add model evaluation charts (confusion matrix)
-* Deploy online (Render / Hugging Face Spaces)
+The dashboard includes dynamic Pandas-driven filters for customized analysis:
+* Filter by **Month & Year** (e.g., September 2026)
+* Filter by **Expense Category**
 
 ---
 
 # 📁 Project Files
 
 ```text
-Smart-Healthcare-System/
+Expense-Tracker-Streamlit/
 │
 ├── app.py
-├── config.py
-├── requirements.txt
-├── .env.example
-├── .gitignore
-├── README.md
-│
-├── routes/
-│   ├── main_routes.py
-│   ├── prediction_routes.py
-│   └── blog_routes.py
-│
-├── utils/
-│   ├── prediction_service.py
-│   ├── validators.py
-│   └── logger.py
-│
-├── models/
-│   ├── model_trainer.py
-│   ├── svc_model.pkl
-│   └── label_encoder.pkl
-│
-├── data/
-│   ├── Training.csv
-│   ├── description.csv
-│   ├── precautions_df.csv
-│   ├── medications.csv
-│   ├── diets.csv
-│   ├── workout_df.csv
-│   └── symtoms_df.csv
-│
-├── templates/
-└── static/
-```
-
----
-
-# 👨‍💻 Author
-
-**Sainath Apar**
-B.Tech – Computer Science & Engineering
-
-* LinkedIn: [linkedin.com/in/sainathapar](https://www.linkedin.com/in/sainathapar)
-* GitHub: [github.com/sainathapar007](https://github.com/sainathapar007)
+├── .streamlit/
+│   └── config.toml
+├── sai image.png
+├── Dashboard Expense Tracker.png
+├── Data Records Expense Tracker.png
+├── Developer Inforamation Expenses Tracker.png
+├── Graph Expenses Tracker.png
+└── README.md
