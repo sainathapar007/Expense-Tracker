@@ -8,7 +8,8 @@ A full-stack **Smart Healthcare System** developed using **Python, Flask, and Sc
 
 # 📸 Application Preview
 
-![Home Page](screenshots/home.png)
+![Home Page](<img width="1893" height="894" alt="Screenshot 2026-10-06 121516" src="https://github.com/user-attachments/assets/91da35de-645f-4efe-add8-76a14a3ff83d" />
+)
 
 ---
 
@@ -97,7 +98,8 @@ The project uses a symptom-disease dataset and five supporting CSV files that ar
 ### 1. Interactive Symptom Selector
 Search and click-to-select chip interface covering 132 symptoms, with a live counter of selected symptoms.
 
-![Symptom Selector](screenshots/symptom-selector.png)
+![Symptom Selector](<img width="1863" height="890" alt="Screenshot 2026-10-06 121558" src="https://github.com/user-attachments/assets/db78dc8a-c9c7-4b0f-8df9-06f11c7c6f9f" />
+)
 
 ### 2. Machine Learning Prediction
 A Support Vector Classifier trained on 41 diseases returns the most likely disease with a confidence score. Input is validated before it reaches the model.
@@ -105,7 +107,8 @@ A Support Vector Classifier trained on 41 diseases returns the most likely disea
 ### 3. Complete Health Report
 Merges five supporting datasets with Pandas to build a full report for the predicted disease, with a print-friendly layout.
 
-![Health Report](screenshots/result.png)
+![Health Report](<img width="1693" height="855" alt="Screenshot 2026-10-06 121629" src="https://github.com/user-attachments/assets/3cf0feb2-615c-4a56-b4f6-a15663c0037a" />
+)
 
 ### 4. Health Blog & Informational Pages
 Includes a health blog (list and detail pages), About, Developer, and Contact pages.
